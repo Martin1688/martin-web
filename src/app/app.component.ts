@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'martin-web';
+
+  isSystemAdmin(){
+    return false;
+  }
+  isAdmin(){
+    return false;
+  }
+  isLoggedIn(){
+    return false;
+  }
+  getUsername(){
+    return 'Martin';
+  }
+  doLogout(){
+    ;
+  }
 }
