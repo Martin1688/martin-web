@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12  col-md-12 alert alert-danger"  *ngIf="formError" role="alert">
+            {{ formError }}
+        </div>
+    </div>
+    <!-- <div class="row" *ngIf="!models">
+        <div class=" col-12 col-xs-12  col-md-12 alert alert-danger" role="alert">
+            <h4>稍等片刻，氣象資料取得中...</h4>
+        </div>
+        
+    </div> -->
+    <div class="row">
+        <div id="demo" class="carousel slide carousel-fade " data-bs-ride="carousel" *ngIf="models">
+            <div class="carousel-indicators">
+                <button *ngFor="let item of models; let i = index"  type="button" data-bs-target="#demo" [attr.data-bs-slide-to]="i" [ngClass]="{'active':i===0}">
+                    <span style="opacity: 0;">{{i}}</span>
+                </button>
+            </div>      
+            <div class="carousel-inner">
+                <div  *ngFor="let model of models; let c = index"  class="carousel-item active"  data-bs-interval="5000" [ngClass]="{'active':c===0}">
+                    <img [src]="model.source" alt="{{model.title}}" class="d-block" style="width:100%">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{model.title}}({{model.datetime}})</h5>
+                        <p>{{model.data}}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+      
+        </div>
+        <!-- <img src="../../../../../assets/images/weather.png" alt=""> -->
+    
+    </div>    
+
+</div>
+

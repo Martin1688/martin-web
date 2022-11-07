@@ -192,6 +192,7 @@ body {
     justify-content: center; 
     align-items: center; 
 }
+
 .img-center{
     display: flex;
       justify-content: center; 
@@ -199,3 +200,19 @@ body {
       margin-top: 120px;
       
   }
+
+.container{
+    margin: 70px -50px 50px 0px;
+    padding: 0 0 0 0;    
+    height: 400px;
+    color: blueviolet;
+}
+
+.btn{
+    border-radius: 15px; 
+    border-style: outset;
+    margin: 5px;
+    background-color: #aaa;
+    color:gold;
+}
+

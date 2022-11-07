@@ -1,0 +1,12 @@
+.img-center{
+    background-image: url("../../assets/images/buddism.png"); 
+    /*background-image: url("../assets/images/notpaid_trans.png");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+    background-color: transparent;
+    height: 600px;
+    border: 0px gray solid;
+}

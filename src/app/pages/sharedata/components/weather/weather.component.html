@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12  col-md-12" *ngIf="formError" class="alert alert-danger" role="alert">
+            {{ formError }}
+        </div>
+    </div>
+    <div class="row" style="text-align:center;">
+        <div class="col-xs-12  col-md-12" style="text-align:center;">
+            <h4 *ngIf="currentTime">氣象快報<span style="color: gold;">({{currentTime}})</span></h4>
+            <h4 *ngIf="!currentTime">稍等片刻，氣象資料取得中...</h4>
+        </div>
+        <table>
+            <tr>
+                <td colspan="4" id="btntr"><span class="btn btn-secondary" (click)="bind(0)">{{today.title}}</span><span class="btn btn-secondary" (click)="bind(1)">{{tonight.title}}</span><span class="btn btn-secondary" (click)="bind(2)">{{tomorrow.title}}</span></td>
+            </tr>
+            <tr>
+                <th>項次</th>
+                <th>縣市</th>
+                <th>溫度</th>
+                <th>降雨機率</th>
+            </tr>
+            <tr *ngFor="let item of weather; let i = index">
+                <td>{{i+1}}</td>
+                <th>{{item.county}}</th>
+                <td>{{item.temcstr}}</td>
+                <td>{{item.rainstr}}</td>
+            </tr>
+            <tr>
+                <td>.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

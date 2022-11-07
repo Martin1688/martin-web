@@ -4,18 +4,17 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {
+    path:'member',
+    loadChildren:()=>import('./pages/member/member.module').then(m=>m.MemberModule)
+  },
+  {
+    path:'data',
+    loadChildren:()=>import('./pages/sharedata/sharedata.module').then(m=>m.SharedataModule)
+  },  
+  {
     path:'',
     component:HomepageComponent,
-    children:[
-      {
-        path:'member',
-        loadChildren:()=>import('./pages/member/member.module').then(m=>m.MemberModule)
-      },
-      {
-        path:'data',
-        loadChildren:()=>import('./pages/sharedata/sharedata.module').then(m=>m.SharedataModule)
-      },
-    ]
+
   }
 ];
 

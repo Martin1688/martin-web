@@ -1,6 +1,6 @@
 <nav class="navbar  fixed-top navbar-expand-md navbar-light">
   <div class="container-fluid">
-      <a routerLink="additem" class="navbar-brand" style="color:#5C899F;">
+      <a routerLink="/" class="navbar-brand" style="color:#5C899F;">
           <img alt="" src="../assets/images/picwish.png" style="height:50px;width:40px;border-radius: 6px;">馬丁出外人</a>
       <button class="navbar-toggler" type="button" style="border: none;text-align: center;padding-left: 0px;" data-bs-toggle="collapse" data-bs-target="#navbarMain"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,11 @@
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">資訊分享</a>
                   <ul class="dropdown-menu">
+                      <li><a routerLink="/data/exchange"  class="dropdown-item">今日匯率</a></li>
+                      <li><a routerLink="/data/weather"  class="dropdown-item">天氣快報</a></li>
                       <li><a href="https://familyaccounting.herokuapp.com/" target="newpage" class="dropdown-item">記帳網站</a></li>
                       <li><a href="https://engwordsv2.herokuapp.com/" target="newpage"  class="dropdown-item">英文生字</a></li>
-                      <li *ngIf="isLoggedIn()"><a routerLink="income" class="dropdown-item">收入</a></li>
-                  </ul>
+                   </ul>
               </li>
           </ul>
           <ul class="navbar-nav mr-auto">

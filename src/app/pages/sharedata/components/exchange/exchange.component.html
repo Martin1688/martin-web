@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12  col-md-12" *ngIf="formError" class="alert alert-danger" role="alert">
+            {{ formError }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12  col-md-12" style="text-align:center;">
+            <h4>兌台幣匯率<span>({{currentTime}})</span></h4>
+            <h5>本匯率僅供參考，兌換外幣請以各銀行公告為準</h5>
+        </div>
+        <table>
+            <tr>
+                <th>項次</th>
+                <th>幣別</th>
+                <th>現金買入</th>
+                <th>現金賣出</th>
+                <th>即期買入</th>
+                <th>即期賣出</th>
+            </tr>
+            <tr *ngFor="let item of exchangeInfos; let i = index">
+                <td>{{i+1}}</td>
+                <th>{{item.currency}}</th>
+                <td>{{item.cash_bid}}</td>
+                <td>{{item.cash_ask}}</td>
+                <td>{{item.spot_bid}}</td>
+                <td>{{item.spot_ask}}</td>
+            </tr>
+            <tr>
+                <td>.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+   
+</div>
