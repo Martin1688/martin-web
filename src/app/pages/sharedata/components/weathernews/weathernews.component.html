@@ -4,12 +4,6 @@
             {{ formError }}
         </div>
     </div>
-    <!-- <div class="row" *ngIf="!models">
-        <div class=" col-12 col-xs-12  col-md-12 alert alert-danger" role="alert">
-            <h4>稍等片刻，氣象資料取得中...</h4>
-        </div>
-        
-    </div> -->
     <div class="row">
         <div id="demo" class="carousel slide carousel-fade " data-bs-ride="carousel" *ngIf="models">
             <div class="carousel-indicators">
@@ -21,8 +15,8 @@
                 <div  *ngFor="let model of models; let c = index"  class="carousel-item active"  data-bs-interval="5000" [ngClass]="{'active':c===0}">
                     <img [src]="model.source" alt="{{model.title}}" class="d-block" style="width:100%">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>{{model.title}}({{model.datetime}})</h5>
-                        <p>{{model.data}}</p>
+                        <h4>{{model.title}}({{model.datetime}})</h4>
+                        <h5>{{model.data}}</h5>
                     </div>
                 </div>
             </div>

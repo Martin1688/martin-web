@@ -34,7 +34,7 @@ export class WeathernewsComponent implements OnInit {
             if (title === '地震報告') {
               const { data } = result.data[i];
               const ary: any[] = data;
-              this.formatEarthquate(ary[0]);
+              this.formatEarthquate(ary);
             } else {
               const src = this.getSource(title);
               //alert(src);
@@ -69,13 +69,37 @@ export class WeathernewsComponent implements OnInit {
     });
   }
   formatEarthquate(obj1: any) {
-    const { grade, datetime, obj } = obj1;
+    let rightobj=obj1[2];
+    for(let i=0; i<obj1.length; i++){
+      const { grade, datetime, obj } = obj1[i];
+      const gradeint=Number.parseInt(grade);
+      const dateint=this.date2int(datetime);
+      //alert(`${gradeint}:${dateint.toLocaleDateString()}`);
+      if(gradeint > Number.parseInt(rightobj.grade) && dateint >= this.date2int(rightobj.datetime)){
+        rightobj=obj1[i];
+      }
+    }
     this.models.push({
       source: this.getSource('地震報告'),
-      title: grade,
-      datetime: this.pureDatetime(datetime),
-      data: obj.locate
-    });
+      title: rightobj.grade,
+      datetime: this.pureDatetime(rightobj.datetime),
+      data:`${rightobj.obj.locate}，${rightobj.obj.deep}，${rightobj.obj.scale}` 
+    });    
+
+  }
+  date2int(datetime: any) {
+    let newdate = new Date();
+    const yr = newdate.getFullYear();
+    if(datetime){
+     const dateary= this.splitMulti(datetime,['/', ' ', ':']);
+     const month=dateary[0];
+     const day=dateary[1]
+    //  alert(dateary[0]);
+    //  alert(dateary[1]);
+     newdate= new Date(yr,month,day);
+     //alert(newdate.toLocaleString());
+    }
+    return newdate;
   }
 
   getSource(str: string) {
@@ -96,7 +120,14 @@ export class WeathernewsComponent implements OnInit {
     //alert(ret);
     return ret;
   }
-
+  splitMulti(str:any, tokens:any){
+    var tempChar = tokens[0]; // We can use the first token as a temporary join character
+    for(var i = 1; i < tokens.length; i++){
+        str = str.split(tokens[i]).join(tempChar);
+    }
+    str = str.split(tempChar);
+    return str;
+}
   pureDatetime(dt:string){
     let ret =dt;
     if(dt.indexOf('<')> -1){

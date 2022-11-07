@@ -1,0 +1,11 @@
+.maindiv {
+    background-size: contain;
+    background-position: center;
+    background-repeat:space;
+    height: 400px;
+    color: white;
+}
+
+.carousel-caption{
+    bottom: 200px;
+}
