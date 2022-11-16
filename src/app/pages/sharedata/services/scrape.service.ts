@@ -21,7 +21,7 @@ export class ScrapeService {
   public fetchExchange(): Observable<any> {
     //alert('call');
     const url: string = `${this.apiBaseUrl}/exchange`;
-    alert(url);
+    //alert(url);
     return this.http.get(url);
   }
 
