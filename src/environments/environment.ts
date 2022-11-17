@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiBaseUrl: 'https://martin-api.herokuapp.com/api',
+  //apiBaseUrl: 'https://martin-api.herokuapp.com/api',
   //apiBaseUrl: 'http://localhost:3000/api',
-  //apiBaseUrl: 'https://martin-api.onrender.com/api',
+  apiBaseUrl: 'https://martin-api.onrender.com/api',
   production: false,
   siteKey: '6Lc1mhQhAAAAAAvBU2oxo4-Qqmn_LnlTpUhoqJiF',
 };
